@@ -17,8 +17,7 @@ class PostLikeSerializer(serializers.ModelSerializer):
         instance.likes = instance.likes + 1
         instance.save()
 
-        instance = super(PostLikeSerializer, self).update(
-            instance, validated_data)
+        instance = super(PostLikeSerializer, self).update(instance, validated_data)
 
         return instance
 
@@ -32,7 +31,6 @@ class PostDislikeSerializer(serializers.ModelSerializer):
         instance.likes = instance.likes - 1
         instance.save()
 
-        instance = super(PostLikeSerializer, self).update(
-            instance, validated_data)
+        instance = super(PostLikeSerializer, self).update(instance, validated_data)
 
         return instance
