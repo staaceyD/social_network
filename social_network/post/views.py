@@ -1,7 +1,9 @@
 from rest_framework import generics
-from .serializers import PostSerializer, PostLikeSerializer, PostDislikeSerializer
-from .models import Post
 from rest_framework.permissions import IsAuthenticated
+
+from .models import Post
+from .serializers import (PostDislikeSerializer, PostLikeSerializer,
+                          PostSerializer)
 
 
 class PostCreateApi(generics.CreateAPIView):
