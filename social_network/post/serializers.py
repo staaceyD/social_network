@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import Post
 
 
@@ -11,13 +12,14 @@ class PostSerializer(serializers.ModelSerializer):
 class PostLikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ["likes"]
+        fields = ["like"]
 
     def update(self, instance, validated_data):
-        instance.likes = instance.likes + 1
+        instance.like = instance.like + 1
         instance.save()
 
-        instance = super(PostLikeSerializer, self).update(instance, validated_data)
+        instance = super(PostLikeSerializer, self).update(
+            instance, validated_data)
 
         return instance
 
@@ -25,12 +27,13 @@ class PostLikeSerializer(serializers.ModelSerializer):
 class PostDislikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ["likes"]
+        fields = ["like"]
 
     def update(self, instance, validated_data):
-        instance.likes = instance.likes - 1
+        instance.like = instance.like - 1
         instance.save()
 
-        instance = super(PostLikeSerializer, self).update(instance, validated_data)
+        instance = super(PostDislikeSerializer, self).update(
+            instance, validated_data)
 
         return instance

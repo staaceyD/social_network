@@ -1,10 +1,8 @@
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from rest_framework import serializers
-from django.contrib.auth.models import User
-from rest_framework.validators import UniqueValidator
+from django.contrib.auth.models import User, update_last_login
 from django.contrib.auth.password_validation import validate_password
-from django.contrib.auth.models import update_last_login
-from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
